@@ -429,3 +429,20 @@ code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monosp
   font-weight: 500;
   margin-bottom: 0;
 }
+
+.check-card {
+  background: var(--card-2);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+.check-card p {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text);
+}
+.tip-block {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--muted);
+}

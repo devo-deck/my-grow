@@ -29,6 +29,7 @@ import {
   resolveLamp,
   tasksForWeek,
   tentAreaM2,
+  wateringGuide,
   wateringIntervalDays,
   wateringStatus,
 } from "./app-logic.js";
@@ -78,6 +79,28 @@ function deDate(iso) {
 
 function todayISO() {
   return toISODate(now);
+}
+
+function wateringVolumeHint(guide, grow) {
+  const pot = nfmt(grow.potL);
+  const kind = guide.volume.kind;
+  const sub = kind === "kokos" ? "Kokos" : kind === "erde" ? "Erde" : "Substrat";
+  const phase = guide.volume.size === "small" ? "junge Pflanzen" : guide.volume.size === "medium" ? "Wachstum" : "große Pflanzen";
+  const runoff = kind === "kokos" ? "bis 10–20 % Ablauf" : "bis etwa 10 % Ablauf";
+  return `${pot} L ${sub}, ${phase} · ${runoff}`;
+}
+
+function wateringIntervalHint(guide) {
+  const s = guide.suggested;
+  const range = s.minDays === s.maxDays
+    ? (s.minDays === 1 ? "etwa täglich" : `etwa alle ${s.minDays} Tage`)
+    : `alle ${s.minDays}–${s.maxDays} Tage`;
+  if (guide.intervalSource === "history" && guide.history.samples) {
+    const n = guide.interval;
+    const hist = n === 1 ? "etwa täglich" : `etwa alle ${n} Tage`;
+    return `Aus deinen Gieß-Tagen: ${hist}. Faustregel: ${range}. Im Zweifel den Topf prüfen.`;
+  }
+  return `Faustregel: ${range}. Im Zweifel den Topf prüfen.`;
 }
 
 function icon(name) {
@@ -297,8 +320,14 @@ function renderHeute() {
   const target = rangeFmt(week.ppfd, "");
   const plan = growPlan(grow);
   const mix = mixPlanWeek(plan, prog.weekIndex, Number(grow.tankL) || 10);
-  const interval = wateringIntervalDays(grow.substrate, phase.id);
-  const water = wateringStatus(grow.waterings, todayISO(), interval);
+  const guide = wateringGuide({
+    potL: grow.potL,
+    substrate: grow.substrate,
+    phaseId: phase.id,
+    waterings: grow.waterings,
+    todayISO: todayISO(),
+  });
+  const water = guide.status;
   const cycle = cycleOverview(grow.startDate, now, WEEK_COUNT, grow.flipDate);
   const harvestCd = cycle.harvestAt ? countdownParts(cycle.harvestAt, now) : null;
   const inTarget = ppfdEst != null && week.ppfd && ppfdEst >= week.ppfd[0] && ppfdEst <= week.ppfd[week.ppfd.length - 1];
@@ -365,6 +394,26 @@ function renderHeute() {
           <div class="sub mt-8">Ziel ${esc(target)} ${inTarget ? "ok" : ""}</div>
         </div>
       </div>
+      <div class="card" id="giessen">
+        <div class="row">
+          <div class="label">Gießen</div>
+          ${water.waterToday ? pill("Heute ja", "warn") : pill("Nicht nötig", "ok")}
+        </div>
+        <div class="num num-md mt-8">${water.waterToday ? "Jetzt" : "Später"}</div>
+        <p class="sub mt-8">Nächste: ${esc(deDate(water.nextISO))}${water.lastISO ? ` · zuletzt ${deDate(water.lastISO)}` : ""}</p>
+        <div class="label mt-16">Menge je Topf</div>
+        <div class="num num-md mt-8">${guide.volume.minL == null ? "—" : guide.volume.minL === guide.volume.maxL ? `${nfmt(guide.volume.minL)} L` : `${nfmt(guide.volume.minL)}–${nfmt(guide.volume.maxL)} L`}</div>
+        <p class="sub mt-8">${esc(wateringVolumeHint(guide, grow))}</p>
+        <div class="label mt-16">Rhythmus</div>
+        <p class="mt-8">${esc(wateringIntervalHint(guide))}</p>
+        <div class="check-card mt-16">
+          <div class="label">Check</div>
+          <p class="mt-8">Topf anheben: ist er deutlich leichter, gießen. Sind die oberen 2–3 cm trocken und der Topf leicht, ist es oft Zeit. Ist er noch schwer, warten.</p>
+        </div>
+        <p class="tip-block">Läuft schon nach wenig Wasser unten raus (z. B. 0,4 L bei einem 7-L-Topf), ist die Erde oft trocken und bildet Rinnen. Dann langsam in mehreren kleinen Runden mit Pausen gießen, bis der Topf deutlich schwerer ist — nach dem Gewicht urteilen, nicht nach dem Ablauf. Sehr trockene Töpfe kannst du 10–15 Minuten von unten anstauen.</p>
+        <button class="btn primary mt-16" data-action="water" ${!water.waterToday && water.lastISO === todayISO() ? "disabled" : ""}>${water.lastISO === todayISO() ? "Heute gegossen" : "Gegossen"}</button>
+      </div>
+
       ${grow.startDate ? `<div class="card">
         <div class="label">Umstellung 12/12</div>
         <div class="field mt-12">
@@ -381,15 +430,6 @@ function renderHeute() {
         </div>
         <p class="sub mt-8">${perL ? esc(perL) : "—"}</p>
         <div class="mt-8">${feedLines}</div>
-      </div>
-      <div class="card">
-        <div class="row">
-          <div class="label">Gießen</div>
-          ${water.waterToday ? pill("Heute ja", "warn") : pill("Nicht nötig", "ok")}
-        </div>
-        <div class="num num-md mt-8">${water.waterToday ? "Jetzt" : "Später"}</div>
-        <p class="sub mt-8">Nächste: ${esc(deDate(water.nextISO))}${water.lastISO ? ` · zuletzt ${deDate(water.lastISO)}` : ""}</p>
-        <button class="btn primary mt-16" data-action="water" ${!water.waterToday && water.lastISO === todayISO() ? "disabled" : ""}>${water.lastISO === todayISO() ? "Heute gegossen" : "Gegossen"}</button>
       </div>
       ${Number(grow.plants) > 3 ? `<div class="warn-note">Gesetzlich höchstens 3 Pflanzen pro erwachsener Person.</div>` : ""}
     </div>` + nav("heute");
@@ -1141,7 +1181,11 @@ function seedDemo() {
     tankL: 10,
     lampId: OMEGA_LAMP.id,
     plan: buildAthenaPlan(),
-    waterings: [toISODate(lastWater)],
+    waterings: [
+      toISODate(new Date(now.getFullYear(), now.getMonth(), now.getDate() - 9)),
+      toISODate(new Date(now.getFullYear(), now.getMonth(), now.getDate() - 6)),
+      toISODate(lastWater),
+    ],
   });
   state = upsertGrow(emptyState(), grow);
 }

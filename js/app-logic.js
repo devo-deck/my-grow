@@ -192,6 +192,133 @@ export function addWatering(waterings, todayISO) {
   return list;
 }
 
+export function substrateKind(substrate) {
+  if (substrate === "kokos") return "kokos";
+  if (substrate === "erde") return "erde";
+  return "custom";
+}
+
+/** small = Start, medium = Wachstum, large = Blüte / große Pflanzen. */
+export function plantSizeFromPhase(phaseId) {
+  if (phaseId === "start" || phaseId === "upcoming" || phaseId === "none") return "small";
+  if (phaseId === "veg") return "medium";
+  return "large";
+}
+
+export function roundVolumeL(n) {
+  const x = Number(n);
+  if (!Number.isFinite(x) || x <= 0) return null;
+  if (x < 5) return Math.round(x * 10) / 10;
+  return Math.round(x);
+}
+
+/**
+ * Liters per pot per watering from pot size, substrate and plant size/phase.
+ * Erde: about 1/4–1/3 of the pot, until ~10% runoff (less for young plants).
+ * Kokos: smaller volume, typically daily, 10–20% runoff.
+ */
+export function wateringVolumeL(potL, substrate, phaseId) {
+  const pot = Number(potL);
+  const kind = substrateKind(substrate);
+  const size = plantSizeFromPhase(phaseId);
+  if (!Number.isFinite(pot) || pot <= 0) {
+    return { minL: null, maxL: null, runoffPct: kind === "kokos" ? [10, 20] : [10, 10], kind, size };
+  }
+  let minF;
+  let maxF;
+  if (kind === "kokos") {
+    if (size === "small") { minF = 1 / 10; maxF = 1 / 6; }
+    else if (size === "medium") { minF = 1 / 7; maxF = 1 / 5; }
+    else { minF = 1 / 6; maxF = 1 / 4; }
+  } else if (size === "small") {
+    minF = 1 / 6;
+    maxF = 1 / 4;
+  } else {
+    // established soil: ~1/4–1/3 of pot volume
+    minF = 1 / 4;
+    maxF = 1 / 3;
+  }
+  const minL = roundVolumeL(pot * minF);
+  let maxL = roundVolumeL(pot * maxF);
+  if (maxL != null && minL != null && maxL < minL) maxL = minL;
+  return {
+    minL,
+    maxL,
+    runoffPct: kind === "kokos" ? [10, 20] : [10, 10],
+    kind,
+    size,
+  };
+}
+
+/**
+ * Suggested interval range in whole days.
+ * Soil, 7–9 L, large plants: every 1–2 days. Soil, 25 L: every 2–4 days.
+ * Coco: daily once plants are established.
+ */
+export function wateringIntervalRange(potL, substrate, phaseId) {
+  const pot = Number(potL) > 0 ? Number(potL) : 25;
+  const kind = substrateKind(substrate);
+  const size = plantSizeFromPhase(phaseId);
+  if (kind === "kokos") {
+    if (size === "small") return { minDays: 1, maxDays: 2, typical: 2, kind, size };
+    return { minDays: 1, maxDays: 1, typical: 1, kind, size };
+  }
+  const anchors = {
+    small: { lo: [2, 3], hi: [3, 5] },
+    medium: { lo: [2, 3], hi: [3, 4] },
+    large: { lo: [1, 2], hi: [2, 4] },
+  };
+  const a = anchors[size] || anchors.medium;
+  const t = Math.max(0, Math.min(1, (pot - 8) / 17));
+  const minDays = Math.max(1, Math.round(a.lo[0] + t * (a.hi[0] - a.lo[0])));
+  const maxDays = Math.max(minDays, Math.round(a.lo[1] + t * (a.hi[1] - a.lo[1])));
+  const typical = Math.max(minDays, Math.min(maxDays, Math.round((minDays + maxDays) / 2)));
+  return { minDays, maxDays, typical, kind, size };
+}
+
+/**
+ * Average gap between logged watering dates, ignoring gaps over maxGap days.
+ */
+export function averageWateringIntervalDays(waterings, maxGap = 10) {
+  const dates = (waterings || [])
+    .map((d) => parseISODate(d))
+    .filter(Boolean)
+    .sort((a, b) => a.getTime() - b.getTime());
+  const unique = [];
+  for (const d of dates) {
+    const iso = toISODate(d);
+    if (!unique.length || toISODate(unique[unique.length - 1]) !== iso) unique.push(d);
+  }
+  if (unique.length < 2) return { days: null, exact: null, samples: 0 };
+  const gaps = [];
+  for (let i = 1; i < unique.length; i += 1) {
+    const gap = Math.round((unique[i].getTime() - unique[i - 1].getTime()) / 86400000);
+    if (gap >= 1 && gap <= maxGap) gaps.push(gap);
+  }
+  if (!gaps.length) return { days: null, exact: null, samples: 0 };
+  const exact = gaps.reduce((s, n) => s + n, 0) / gaps.length;
+  return { days: Math.max(1, Math.round(exact)), exact, samples: gaps.length };
+}
+
+/**
+ * Beginner watering guide: volume, interval (history if enough logs), status.
+ */
+export function wateringGuide({ potL, substrate, phaseId, waterings, todayISO } = {}) {
+  const volume = wateringVolumeL(potL, substrate, phaseId);
+  const suggested = wateringIntervalRange(potL, substrate, phaseId);
+  const history = averageWateringIntervalDays(waterings);
+  const interval = history.days != null ? history.days : suggested.typical;
+  const status = wateringStatus(waterings, todayISO, interval);
+  return {
+    volume,
+    suggested,
+    history,
+    interval,
+    intervalSource: history.days != null ? "history" : "guide",
+    status,
+  };
+}
+
 /**
  * Average PPFD estimate at the canopy for a given dim level.
  * utilization < 1 accounts for wall/floor losses in a tent.

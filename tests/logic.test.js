@@ -8,6 +8,10 @@ import {
   wateringIntervalDays,
   wateringStatus,
   addWatering,
+  wateringVolumeL,
+  wateringIntervalRange,
+  averageWateringIntervalDays,
+  wateringGuide,
   estimatePPFD,
   estimatePPFDAt,
   lampPPF,
@@ -204,5 +208,34 @@ const at60 = estimatePPFDAt({ lamp: OMEGA_LAMP, areaM2: 1.44, dimPct: 75, height
 assert(at60.ppfdAvg === 600, "single point * 0.75 = 600, got " + at60.ppfdAvg);
 
 assert(emptyPpfdRef().manufacturer.length === 0, "empty ref");
+
+
+// watering guide
+const vSoil25 = wateringVolumeL(25, "erde", "flower");
+assert(vSoil25.minL === 6 && vSoil25.maxL === 8, "25 L soil flower 6-8 L, got " + vSoil25.minL + "-" + vSoil25.maxL);
+assert(vSoil25.runoffPct[0] === 10, "soil runoff ~10%");
+const vSoil7 = wateringVolumeL(7, "erde", "flower");
+assert(vSoil7.minL === 1.8 && vSoil7.maxL === 2.3, "7 L soil 1.8-2.3, got " + vSoil7.minL + "-" + vSoil7.maxL);
+const vCoco = wateringVolumeL(25, "kokos", "flower");
+assert(vCoco.maxL < vSoil25.maxL && vCoco.runoffPct[1] === 20, "coco smaller, 10-20% runoff");
+const vStart = wateringVolumeL(25, "erde", "start");
+assert(vStart.maxL < vSoil25.maxL, "young plants get less");
+
+const iSmall = wateringIntervalRange(8, "erde", "flower");
+assert(iSmall.minDays === 1 && iSmall.maxDays === 2, "7-9 L soil big plants 1-2 days " + JSON.stringify(iSmall));
+const i25 = wateringIntervalRange(25, "erde", "flower");
+assert(i25.minDays === 2 && i25.maxDays === 4, "25 L soil big plants 2-4 days " + JSON.stringify(i25));
+const iCoco = wateringIntervalRange(25, "kokos", "flower");
+assert(iCoco.typical === 1 && iCoco.minDays === 1, "coco daily");
+
+assert(averageWateringIntervalDays(["2026-11-16", "2026-11-19", "2026-11-22"]).days === 3, "avg 3");
+assert(averageWateringIntervalDays(["2026-11-22"]).days === null, "one date no avg");
+assert(averageWateringIntervalDays(["2026-11-01", "2026-11-20", "2026-11-22"]).days === 2, "ignore long gap, use 2");
+
+const g = wateringGuide({ potL: 25, substrate: "erde", phaseId: "veg", waterings: ["2026-11-16", "2026-11-19", "2026-11-22"], todayISO: "2026-11-25" });
+assert(g.intervalSource === "history" && g.interval === 3, "guide uses history " + JSON.stringify(g));
+assert(g.status.waterToday === true && g.status.nextISO === "2026-11-25", "due today from history");
+const g0 = wateringGuide({ potL: 25, substrate: "erde", phaseId: "veg", waterings: [], todayISO: "2026-11-25" });
+assert(g0.intervalSource === "guide" && g0.status.waterToday === true, "no history -> guide, water today");
 
 console.log("All logic tests passed.");

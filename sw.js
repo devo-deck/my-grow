@@ -1,4 +1,4 @@
-const CACHE = "grow-app-v4";
+const CACHE = "grow-app-v5";
 const ASSETS = [
   "./",
   "./index.html",

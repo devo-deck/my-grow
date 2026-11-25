@@ -25,7 +25,7 @@ Auf dem Xiaomi: in Chrome das Menü öffnen und **Zum Startbildschirm hinzufüge
 
 ## Was die App kann
 
-- **Heute:** Gesamtdauer und restliche Zeit auf einen Blick, Tag/Woche, Phase, Countdown bis Ernte und bis zum nächsten Abschnitt, optionales echtes 12/12-Datum, Lampe, PPFD-Schätzung, Dünger-Mix, Gießen.
+- **Heute:** Gesamtdauer und restliche Zeit auf einen Blick, Tag/Woche, Phase, Countdown bis Ernte und bis zum nächsten Abschnitt, optionales echtes 12/12-Datum, Lampe, PPFD-Schätzung, Dünger-Mix, Gieß-Hilfe (Menge je Topf, Rhythmus, Check, Tipp bei Rinnen).
 - **Plan:** alle 14 Wochen, wischen oder Zurück/Weiter; zeigt die empfohlene Dimmung (wie Heute/Lampe), Aufgaben passend zum Substrat.
 - **Dünger:** großes Düngeschema über alle Wochen, heutiger Mix für den Tank, Athena Blended als Vorgabe, eigene Pläne, ml/L oder g/L, EC/pH.
 - **Lampe:** Vorgabe Omega Infinity 600W Pro 3.0 (Typ Fläche/Leisten), eigene Lampe, Typ Fläche / Panel / Spot, optionale Hersteller-PPFD und eigene PAR-Messungen, Empfehlung für Dimmung/Abstand je Phase.
@@ -37,7 +37,7 @@ Auf dem Xiaomi: in Chrome das Menü öffnen und **Zum Startbildschirm hinzufüge
 - PPFD ohne eigene Werte ist eine Schätzung (PPF × Dimmung ÷ Zeltfläche × Typ-Faktor, leichter Abstandsabfall). Keine Messung und keine Lichtkarte. Typ-Faktoren (Streuung, höhere Hängehöhe bei Spot) sind Faustregeln.
 - Hersteller-PPFD und PAR-Messungen werden linear nach Höhe interpoliert und proportional zur Dimmung skaliert. Eine einzelne Angabe wird zusätzlich mit dem Typ-Abstandsfaktor angepasst. Das ersetzt keine Lichtkarte.
 - Ohne gesetztes 12/12-Datum bleibt der Blüte-Start auf Tag 35, Spülen 3 Tage vor der Ernte, Ernte nach 9 Blütewochen. Mit Datum verschieben sich Kalender, Countdown und Düngerwochen (längere Veg bleibt auf der letzten Veg-Rezeptur; frühere 12/12 überspringt offene Veg-Wochen). Die Blütedauer bleibt 9 Wochen.
-- Gieß-Intervalle sind Regeln (Erde seltener als Kokos), kein Sensor. Im Zweifel den Topf wiegen.
+- Gießmengen und -intervalle sind Faustregeln nach Topfgröße, Substrat und Phase, kein Sensor. Mit mindestens zwei „Gegossen“-Tagen nutzt die App den mittleren Abstand. Im Zweifel den Topf heben. Trockene Erde kann Rinnen bilden — dann langsam in Runden gießen oder kurz anstauen.
 - Pflanzenzahl ist frei; über 3 erscheint nur ein Hinweis. Keine Rechtsberatung.
 - Athena-Dosierungen kommen aus der offiziellen metrischen Tabelle ohne Fade (A01.004). Es gibt keine PDF-Erkennung.
 - Service Worker kann bei der Entwicklung eine alte Datei aus dem Cache zeigen. Dann in `sw.js` den Cachenamen (`grow-app-v4`) hochzählen.

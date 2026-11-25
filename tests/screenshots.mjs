@@ -39,6 +39,13 @@ await shot("heute", "#/heute", async (page) => {
   });
   console.log("heute nums", nums);
 });
+await shot("heute-giessen", "#/heute", async (page) => {
+  await page.waitForSelector("#giessen");
+  await page.$eval("#giessen", (el) => el.scrollIntoView({ block: "start" }));
+  await new Promise((r) => setTimeout(r, 250));
+  const text = await page.$eval("#giessen", (el) => el.innerText.slice(0, 400));
+  console.log("giessen", text.replace(/\n/g, " | "));
+});
 await shot("plan", "#/plan", async (page) => {
   await new Promise((r) => setTimeout(r, 120));
   const title = await page.$eval(".week-slide .num, .week-slide h1, .week-slide", (el) => {
