@@ -1,0 +1,1290 @@
+{
+  "version": 1,
+  "locale": "de-DE",
+  "updated": "2026-11-25",
+  "timezoneNote": "Kalenderdaten (YYYY-MM-DD) gelten in der lokalen Zeitzone der nutzenden Person, hier Europe/Berlin.",
+  "setup": {
+    "tentM": [
+      1.2,
+      1.2
+    ],
+    "plantsDefault": 3,
+    "legal": {
+      "maxPlantsPerAdult": 3,
+      "citation": "KCanG § 9 Abs. 1, § 3 Abs. 2 Nr. 2",
+      "note": "Erwachsene dürfen am Wohnsitz höchstens drei Cannabispflanzen gleichzeitig zum Eigenkonsum anbauen. Die Grenze gilt pro volljähriger Person. Weitergabe ist verboten. Stecklingsversand ist nach § 20 Abs. 5 KCanG verboten; Weitergabe nur persönlich durch Anbauvereinigungen, höchstens fünf Stecklinge pro Person und Kalendermonat.",
+      "cloneShippingForbidden": true,
+      "cloneHandoverMaxPerMonth": 5
+    },
+    "pots": {
+      "count": 3,
+      "volumeL": [
+        25,
+        30
+      ],
+      "type": "fabric",
+      "typeLabel": "Stofftopf",
+      "why": "Drei große Pflanzen füllen das 1,2 × 1,2 m Zelt unter einem Netz besser als viele kleine in 7-Liter-Töpfen. Stofftöpfe luftbeschneiden die Wurzeln und passen zu häufigem Gießen in Kokos. Kunststoff hält Feuchte länger, neigt aber zu Ringwurzeln."
+    },
+    "scaleNote": "Nur wenn weitere Erwachsene im Haushalt jeweils eigene Pflanzen anbauen (ebenfalls höchstens drei pro Person): dann 4–6 Pflanzen in 15–20-Liter-Töpfen und kürzere Vegetation. Nicht über die gesetzliche Grenze pro Person gehen.",
+    "substrate": {
+      "kind": "coco",
+      "recommended": [
+        {
+          "name": "CANNA Coco Professional Plus",
+          "packL": 50,
+          "buffered": true,
+          "rhp": true,
+          "prep": "Bereits gespült und gepuffert, kein extra Ca/Mg-Puffern nötig. Vom ersten Tag an mit Nährlösung gießen. Athena-Voreinweichen des Mediums: pH 5,5–5,8, EC 3,5–4,0."
+        },
+        {
+          "name": "Plagron Cocos Premium",
+          "packL": 50,
+          "buffered": true,
+          "rhp": true,
+          "prep": "Ebenfalls vollständig gespült und gepuffert, ohne Vor-Dünger. Kein extra Puffern. Ab Tag 1 düngen. Hersteller: pH 5,8–6,8 (1:1,5), EC unter 0,2 mS/cm (1:1,5)."
+        }
+      ],
+      "amountHint": "Für 3 Töpfe à 25–30 L etwa 2–3 Säcke à 50 L einplanen.",
+      "tiroInterpretation": "„Ohne Tiro“ aus der Spracherkennung ist am ehesten „ohne Torf“ (torffrei) oder „ohne Terra“ (keine Erde/Terra-Mischung). Gepuffertes Kokos erfüllt beides und passt zur Athena Blended Line."
+    },
+    "lamp": {
+      "name": "Omega Infinity 600W Pro 3.0",
+      "bars": 6,
+      "inputW": 600,
+      "inputTolerancePct": 5,
+      "ppfUmolS": 1890,
+      "efficacyUmolPerJ": 3.0,
+      "dimStepsPct": [
+        0,
+        25,
+        50,
+        75,
+        100
+      ],
+      "retailerHangCm": {
+        "veg": [
+          60,
+          70
+        ],
+        "flower": [
+          40,
+          50
+        ]
+      },
+      "footprintM": [
+        1.4,
+        1.4
+      ],
+      "ppfdEstimateNote": "1890 µmol/s verteilt auf 1,44 m² wären rechnerisch etwa 1310 µmol/m²/s im Mittel, wenn jedes Photon die Fläche trifft. Die tatsächliche PPFD am Blatt hängt von Abstand, Dimmung und Zelträndern ab und ist nicht gemessen."
+    }
+  },
+  "ppfdTargets": {
+    "unit": "µmol/m²/s",
+    "note": "Richtwerte ohne CO2-Zugabe, nicht aus dem Athena-Schema.",
+    "clone": [
+      100,
+      300
+    ],
+    "veg": [
+      300,
+      600
+    ],
+    "flowerEarly": [
+      600,
+      800
+    ],
+    "flowerEstablished": [
+      800,
+      1000
+    ]
+  },
+  "climateTargets": {
+    "note": "Typische Klimaziele für Indoor-Anbau, nicht Teil der offiziellen Athena-Tabelle. Nachttemperatur nicht unter 18–20 °C, sonst färben sich Blätter oft rot/lila.",
+    "veg": {
+      "tempC": [
+        24,
+        28
+      ],
+      "rhPct": [
+        60,
+        70
+      ],
+      "vpdKpa": [
+        0.8,
+        1.2
+      ],
+      "nightMinC": [
+        18,
+        20
+      ]
+    },
+    "flowerEarly": {
+      "tempC": [
+        24,
+        26
+      ],
+      "rhPct": [
+        50,
+        60
+      ],
+      "vpdKpa": [
+        1.0,
+        1.3
+      ],
+      "nightMinC": [
+        18,
+        20
+      ]
+    },
+    "flowerLate": {
+      "tempC": [
+        22,
+        26
+      ],
+      "rhPct": [
+        45,
+        50
+      ],
+      "vpdKpa": [
+        1.2,
+        1.5
+      ],
+      "nightMinC": [
+        18,
+        20
+      ]
+    }
+  },
+  "wateringDefaults": {
+    "medium": "coco",
+    "runoffPct": [
+      10,
+      20
+    ],
+    "runoffNote": "In Kokos bis zu einem klaren Ablauf gießen, üblich 10–20 %, und Ablauf-pH/EC messen. Die 10–20 % sind gängige Praxis, keine Zahl aus der Athena-Futtertabelle.",
+    "cannaGuideline": "CANNA nennt für ausgewachsene Pflanzen etwa 5 L Nährlösung pro m² und Tag. Im 1,2 × 1,2 m Zelt sind das grob 7 L insgesamt, also etwa 2,3 L pro Pflanze als Startpunkt, nicht als starre Vorgabe.",
+    "method": "Nach Topfgewicht gießen, nicht nach einem festen Literwert. Frisch umgetopft oft alle 1–2 Tage, sobald die Wurzeln den Stofftopf füllen oft täglich."
+  },
+  "weeks": [
+    {
+      "id": "start",
+      "index": 0,
+      "phase": "start",
+      "label": "Eintopfen",
+      "shortLabel": "Start",
+      "feedKey": "clone-feed",
+      "photoperiod": "18/6",
+      "dimPct": [
+        25,
+        50
+      ],
+      "hangCm": [
+        60,
+        70
+      ],
+      "ppfd": [
+        100,
+        300
+      ],
+      "climateKey": "veg",
+      "watering": {
+        "frequency": "Nach dem ersten Durchdränken warten, bis der Topf deutlich leichter ist, oft alle 1–2 Tage.",
+        "volumeLPerPot": [
+          1,
+          2
+        ]
+      },
+      "tasks": [
+        "Kokos voreinweichen nach Athena: pH 5,5–5,8, EC 3,5–4,0.",
+        "Bewurzelte Stecklinge in die endgültigen 25–30-Liter-Stofftöpfe setzen, nicht erst in 7-Liter-Töpfe.",
+        "Netz tief spannen, etwa 20–30 cm über dem Topfrand, nicht hoch oben.",
+        "Die ersten Tage nur etablieren, noch nicht toppen."
+      ],
+      "checks": [
+        "Kein starkes Hängen nach dem Umtopfen.",
+        "Gießwasser- und Ablauf-pH.",
+        "Nachttemperatur mindestens 18–20 °C."
+      ]
+    },
+    {
+      "id": "veg-1",
+      "index": 1,
+      "phase": "veg",
+      "label": "Wachstum Woche 1",
+      "shortLabel": "Veg 1",
+      "feedKey": "veg",
+      "photoperiod": "18/6",
+      "dimPct": [
+        50
+      ],
+      "hangCm": [
+        60,
+        70
+      ],
+      "ppfd": [
+        300,
+        400
+      ],
+      "climateKey": "veg",
+      "watering": {
+        "frequency": "Alle 1–2 Tage bis zum Ablauf.",
+        "volumeLPerPot": [
+          1,
+          2
+        ]
+      },
+      "tasks": [
+        "Etablieren lassen.",
+        "Seitentriebe flach führen, sobald sie fest stehen."
+      ],
+      "checks": [
+        "Frischer Austrieb.",
+        "Ablauf-pH 5,8–6,2, Ablauf-EC nicht stark über dem Ziel."
+      ]
+    },
+    {
+      "id": "veg-2",
+      "index": 2,
+      "phase": "veg",
+      "label": "Wachstum Woche 2",
+      "shortLabel": "Veg 2",
+      "feedKey": "veg",
+      "photoperiod": "18/6",
+      "dimPct": [
+        50,
+        75
+      ],
+      "hangCm": [
+        60
+      ],
+      "ppfd": [
+        400,
+        500
+      ],
+      "climateKey": "veg",
+      "watering": {
+        "frequency": "Alle 1–2 Tage, Richtung täglich wenn der Topf schnell leicht wird.",
+        "volumeLPerPot": [
+          2,
+          3
+        ]
+      },
+      "tasks": [
+        "Nach dem 4. oder 5. Knoten toppen.",
+        "Seitentriebe nach außen binden (LST)."
+      ],
+      "checks": [
+        "Gleichmäßige Triebhöhe.",
+        "Stiele werden kräftiger, nicht nur länger."
+      ]
+    },
+    {
+      "id": "veg-3",
+      "index": 3,
+      "phase": "veg",
+      "label": "Wachstum Woche 3",
+      "shortLabel": "Veg 3",
+      "feedKey": "veg",
+      "photoperiod": "18/6",
+      "dimPct": [
+        75
+      ],
+      "hangCm": [
+        60
+      ],
+      "ppfd": [
+        400,
+        600
+      ],
+      "climateKey": "veg",
+      "watering": {
+        "frequency": "Oft täglich in Stofftöpfen, sobald die Wurzeln den Topf füllen.",
+        "volumeLPerPot": [
+          2,
+          3
+        ]
+      },
+      "tasks": [
+        "Triebe ins Netz flechten.",
+        "Schwache innere Triebe entfernen."
+      ],
+      "checks": [
+        "Netz füllt sich von innen nach außen.",
+        "Keine Lichtbleiche an den Spitzen."
+      ]
+    },
+    {
+      "id": "veg-4",
+      "index": 4,
+      "phase": "veg",
+      "label": "Wachstum Woche 4",
+      "shortLabel": "Veg 4",
+      "feedKey": "veg",
+      "photoperiod": "18/6",
+      "dimPct": [
+        75
+      ],
+      "hangCm": [
+        60
+      ],
+      "ppfd": [
+        400,
+        600
+      ],
+      "climateKey": "veg",
+      "watering": {
+        "frequency": "Meist täglich bis zum Ablauf.",
+        "volumeLPerPot": [
+          2,
+          3
+        ]
+      },
+      "tasks": [
+        "Auf 12/12 umstellen, wenn das Netz zu etwa 70–80 % voll ist.",
+        "Ist das Netz noch nicht voll genug: bei der Vegetations-Rezeptur bleiben und erst später umstellen. Die Athena-Tabelle hat fest 4 Vegetationswochen, darf aber an die Sorte angepasst werden."
+      ],
+      "checks": [
+        "Flaches, gleich hohes Blätterdach.",
+        "Triebe fest genug für die Streckung."
+      ]
+    },
+    {
+      "id": "flower-1",
+      "index": 5,
+      "phase": "flower",
+      "label": "Blüte Woche 1",
+      "shortLabel": "Blüte 1",
+      "feedKey": "flower-1",
+      "photoperiod": "12/12",
+      "dimPct": [
+        75
+      ],
+      "hangCm": [
+        45,
+        50
+      ],
+      "ppfd": [
+        600,
+        800
+      ],
+      "climateKey": "flowerEarly",
+      "watering": {
+        "frequency": "Meist täglich bis zum Ablauf.",
+        "volumeLPerPot": [
+          2,
+          4
+        ]
+      },
+      "tasks": [
+        "Streckung ins Netz legen, nicht stark entlauben.",
+        "Luftfeuchte Richtung 50–60 % bringen."
+      ],
+      "checks": [
+        "Gleichmäßige Streckung.",
+        "Keine hängenden Blätter nach dem Lichtwechsel."
+      ]
+    },
+    {
+      "id": "flower-2",
+      "index": 6,
+      "phase": "flower",
+      "label": "Blüte Woche 2",
+      "shortLabel": "Blüte 2",
+      "feedKey": "flower-2",
+      "photoperiod": "12/12",
+      "dimPct": [
+        75
+      ],
+      "hangCm": [
+        45,
+        50
+      ],
+      "ppfd": [
+        600,
+        800
+      ],
+      "climateKey": "flowerEarly",
+      "watering": {
+        "frequency": "Meist täglich bis zum Ablauf.",
+        "volumeLPerPot": [
+          2,
+          4
+        ]
+      },
+      "tasks": [
+        "Gegen Ende der Woche mit dem Lollipopping unter dem Netz beginnen.",
+        "Kleine, schattige Ansätze unten entfernen."
+      ],
+      "checks": [
+        "Obere Blütenansätze gleich hoch.",
+        "Ablauf-EC im Zielbereich."
+      ]
+    },
+    {
+      "id": "flower-3",
+      "index": 7,
+      "phase": "flower",
+      "label": "Blüte Woche 3",
+      "shortLabel": "Blüte 3",
+      "feedKey": "flower-3",
+      "photoperiod": "12/12",
+      "dimPct": [
+        100
+      ],
+      "hangCm": [
+        40,
+        45
+      ],
+      "ppfd": [
+        800,
+        1000
+      ],
+      "climateKey": "flowerEarly",
+      "watering": {
+        "frequency": "Meist täglich bis zum Ablauf.",
+        "volumeLPerPot": [
+          2,
+          4
+        ]
+      },
+      "tasks": [
+        "Lollipopping: unteres Drittel und alles unter dem Netz ausputzen.",
+        "Große Fächerblätter wegnehmen, die Blüten verdecken.",
+        "Lampe auf 100 % nur, wenn die obersten Blätter nicht hell werden oder sich einrollen."
+      ],
+      "checks": [
+        "Spitzenblätter auf Bleiche oder Tütenform prüfen.",
+        "PK startet in dieser Woche."
+      ]
+    },
+    {
+      "id": "flower-4",
+      "index": 8,
+      "phase": "flower",
+      "label": "Blüte Woche 4",
+      "shortLabel": "Blüte 4",
+      "feedKey": "flower-4",
+      "photoperiod": "12/12",
+      "dimPct": [
+        100
+      ],
+      "hangCm": [
+        40,
+        45
+      ],
+      "ppfd": [
+        800,
+        1000
+      ],
+      "climateKey": "flowerEarly",
+      "watering": {
+        "frequency": "Meist täglich bis zum Ablauf.",
+        "volumeLPerPot": [
+          2,
+          4
+        ]
+      },
+      "tasks": [
+        "Blüten sitzen lassen, nur noch störende Schattenblätter nehmen.",
+        "Luftbewegung durchs Blätterdach prüfen."
+      ],
+      "checks": [
+        "EC-Ziel ist in dieser Woche am höchsten (2,6).",
+        "Keine Salzansammlung (Ablauf-EC deutlich über Zufluss)."
+      ]
+    },
+    {
+      "id": "flower-5",
+      "index": 9,
+      "phase": "flower",
+      "label": "Blüte Woche 5",
+      "shortLabel": "Blüte 5",
+      "feedKey": "flower-5",
+      "photoperiod": "12/12",
+      "dimPct": [
+        100
+      ],
+      "hangCm": [
+        40,
+        45
+      ],
+      "ppfd": [
+        800,
+        1000
+      ],
+      "climateKey": "flowerLate",
+      "watering": {
+        "frequency": "Meist täglich bis zum Ablauf.",
+        "volumeLPerPot": [
+          2,
+          4
+        ]
+      },
+      "tasks": [
+        "Leichtes Entlauben nur wenn nötig.",
+        "Luftfeuchte Richtung 45–50 % senken."
+      ],
+      "checks": [
+        "Dichte Blüten auf Schimmel prüfen.",
+        "Bloom-Dosis beginnt zu fallen, PK bleibt hoch."
+      ]
+    },
+    {
+      "id": "flower-6",
+      "index": 10,
+      "phase": "flower",
+      "label": "Blüte Woche 6",
+      "shortLabel": "Blüte 6",
+      "feedKey": "flower-6",
+      "photoperiod": "12/12",
+      "dimPct": [
+        100
+      ],
+      "hangCm": [
+        40,
+        45
+      ],
+      "ppfd": [
+        800,
+        1000
+      ],
+      "climateKey": "flowerLate",
+      "watering": {
+        "frequency": "Meist täglich bis zum Ablauf.",
+        "volumeLPerPot": [
+          2,
+          4
+        ]
+      },
+      "tasks": [
+        "Kein starkes Entlauben mehr.",
+        "Luftfeuchte unten halten."
+      ],
+      "checks": [
+        "Blütenfestigkeit.",
+        "Keine nassen Töpfe über Nacht."
+      ]
+    },
+    {
+      "id": "flower-7",
+      "index": 11,
+      "phase": "flower",
+      "label": "Blüte Woche 7",
+      "shortLabel": "Blüte 7",
+      "feedKey": "flower-7",
+      "photoperiod": "12/12",
+      "dimPct": [
+        100
+      ],
+      "hangCm": [
+        40,
+        45
+      ],
+      "ppfd": [
+        800,
+        1000
+      ],
+      "climateKey": "flowerLate",
+      "watering": {
+        "frequency": "Noch bis zum Ablauf gießen, Menge an den Verbrauch anpassen.",
+        "volumeLPerPot": [
+          2,
+          4
+        ]
+      },
+      "tasks": [
+        "Reife beobachten, nicht mehr in die Krone eingreifen.",
+        "EC-Ziel fällt auf 1,7."
+      ],
+      "checks": [
+        "Trichome mit Lupe, wenn die Sorte um die 8 Wochen blüht."
+      ]
+    },
+    {
+      "id": "flower-8",
+      "index": 12,
+      "phase": "flower",
+      "label": "Blüte Woche 8",
+      "shortLabel": "Blüte 8",
+      "feedKey": "flower-8",
+      "photoperiod": "12/12",
+      "dimPct": [
+        75,
+        100
+      ],
+      "hangCm": [
+        40,
+        45
+      ],
+      "ppfd": [
+        800,
+        1000
+      ],
+      "climateKey": "flowerLate",
+      "watering": {
+        "frequency": "Weiter bis zum Ablauf, außer du beginnst bereits zu spülen.",
+        "volumeLPerPot": [
+          2,
+          4
+        ]
+      },
+      "tasks": [
+        "CaMg entfällt in der offiziellen Tabelle.",
+        "Viele Sorten sind jetzt erntereif. Die Tabelle bis Woche 9 nur nutzen, wenn die Sorte länger braucht."
+      ],
+      "checks": [
+        "Trichome und Blütenreife.",
+        "pH-Ziel jetzt 6,0–6,4 für alle Medien."
+      ]
+    },
+    {
+      "id": "flower-9",
+      "index": 13,
+      "phase": "flower",
+      "label": "Blüte Woche 9",
+      "shortLabel": "Blüte 9",
+      "feedKey": "flower-9",
+      "photoperiod": "12/12",
+      "dimPct": [
+        75,
+        100
+      ],
+      "hangCm": [
+        40,
+        45
+      ],
+      "ppfd": [
+        800,
+        1000
+      ],
+      "climateKey": "flowerLate",
+      "watering": {
+        "frequency": "Letzte 3 Tage in Kokos: spülen.",
+        "volumeLPerPot": [
+          2,
+          4
+        ]
+      },
+      "tasks": [
+        "Letzte 3 Tage in Kokos: Umkehrosmose- oder sehr weiches Wasser plus Athena Cleanse 2,6 ml/L (26 ml je 10 L), EC unter 0,1, pH 6,0–6,4.",
+        "Ernten, wenn die Sorte reif ist, nicht zwangsläufig am Ende der Woche."
+      ],
+      "checks": [
+        "Trichome.",
+        "Ablauf-EC beim Spülen fällt ab."
+      ]
+    }
+  ],
+  "feedPresets": {
+    "athena-blended-metric-a01-004": {
+      "id": "athena-blended-metric-a01-004",
+      "name": "Athena Blended (metrisch, ohne Fade)",
+      "line": "Athena Blended Line",
+      "chartCode": "A01.004",
+      "chartVariant": "without-fade",
+      "unitDefault": "ml/L",
+      "officialUnit": "mL per 10 L",
+      "sourceUrl": "https://support.athenaag.com/hc/en-us/articles/17189523484443-Blended-Line-Feed-Schedules",
+      "pdfUrl": "https://support.athenaag.com/hc/en-us/article_attachments/17189433276699",
+      "disclaimer": "Offizielle metrische Tabelle ohne Fade, Stand der Datei A01.004. Athena nennt sie eine Basisempfehlung; Wochen dürfen an die Sorte angepasst werden. Alle Dosierungen in ml/L sind die offiziellen ml je 10 L geteilt durch 10. Nichts davon ist erfunden.",
+      "mixingOrder": [
+        "Balance (als pH-Plus, keine feste ml-Angabe)",
+        "Grow B oder Bloom B",
+        "Grow A oder Bloom A",
+        "PK",
+        "CaMg",
+        "Cleanse"
+      ],
+      "mediaPresoakCoco": {
+        "pH": [
+          5.5,
+          5.8
+        ],
+        "ec": [
+          3.5,
+          4.0
+        ]
+      },
+      "flush": {
+        "when": "Kokos: letzte 3 Tage. Steinwolle: letzter Tag.",
+        "cleanseMlPerL": 2.6,
+        "cleanseMlPer10L": 26,
+        "ecMax": 0.1,
+        "pH": [
+          6.0,
+          6.4
+        ],
+        "water": "RO or very low-EC water plus Cleanse"
+      },
+      "products": [
+        {
+          "id": "grow-a",
+          "name": "Grow A",
+          "unit": "ml/L"
+        },
+        {
+          "id": "grow-b",
+          "name": "Grow B",
+          "unit": "ml/L"
+        },
+        {
+          "id": "bloom-a",
+          "name": "Bloom A",
+          "unit": "ml/L"
+        },
+        {
+          "id": "bloom-b",
+          "name": "Bloom B",
+          "unit": "ml/L"
+        },
+        {
+          "id": "pk",
+          "name": "PK",
+          "unit": "ml/L"
+        },
+        {
+          "id": "camg",
+          "name": "CaMg",
+          "unit": "ml/L"
+        },
+        {
+          "id": "cleanse",
+          "name": "Cleanse",
+          "unit": "ml/L"
+        }
+      ],
+      "balanceNote": "Balance hat keine feste Dosis. Athena setzt es als pH-Plus ein. Zusammen mit Balance kein zusätzliches Kaliumsilikat verwenden.",
+      "weeks": {
+        "clone-presoak": {
+          "ec": 1.0,
+          "pH": "5.6",
+          "dosesMlPerL": {
+            "bloom-a": 1.3,
+            "bloom-b": 1.3,
+            "cleanse": 0.3
+          },
+          "dosesMlPer10L": {
+            "bloom-a": 13,
+            "bloom-b": 13,
+            "cleanse": 3
+          }
+        },
+        "clone-feed": {
+          "ec": 2.0,
+          "pH": "5.6",
+          "dosesMlPerL": {
+            "bloom-a": 2.6,
+            "bloom-b": 2.6,
+            "cleanse": 0.3
+          },
+          "dosesMlPer10L": {
+            "bloom-a": 26,
+            "bloom-b": 26,
+            "cleanse": 3
+          }
+        },
+        "veg": {
+          "ec": 2.1,
+          "pH": "5.8–6.2 (Kokos/Steinwolle), 6.0–6.4 (Torf)",
+          "dosesMlPerL": {
+            "grow-a": 2.9,
+            "grow-b": 2.9
+          },
+          "dosesMlPer10L": {
+            "grow-a": 29,
+            "grow-b": 29
+          },
+          "rangesMlPerL": {
+            "camg": [
+              0.8,
+              1.3
+            ],
+            "cleanse": [
+              0.5,
+              1.3
+            ]
+          },
+          "rangesMlPer10L": {
+            "camg": [
+              8,
+              13
+            ],
+            "cleanse": [
+              5,
+              13
+            ]
+          }
+        },
+        "flower-1": {
+          "ec": 2.3,
+          "pH": "5.8–6.2 (Kokos/Steinwolle), 6.0–6.4 (Torf)",
+          "dosesMlPerL": {
+            "bloom-a": 3.2,
+            "bloom-b": 3.2
+          },
+          "dosesMlPer10L": {
+            "bloom-a": 32,
+            "bloom-b": 32
+          },
+          "rangesMlPerL": {
+            "camg": [
+              0.8,
+              1.3
+            ],
+            "cleanse": [
+              0.5,
+              1.3
+            ]
+          },
+          "rangesMlPer10L": {
+            "camg": [
+              8,
+              13
+            ],
+            "cleanse": [
+              5,
+              13
+            ]
+          }
+        },
+        "flower-2": {
+          "ec": 2.3,
+          "pH": "5.8–6.2 (Kokos/Steinwolle), 6.0–6.4 (Torf)",
+          "dosesMlPerL": {
+            "bloom-a": 3.2,
+            "bloom-b": 3.2
+          },
+          "dosesMlPer10L": {
+            "bloom-a": 32,
+            "bloom-b": 32
+          },
+          "rangesMlPerL": {
+            "camg": [
+              0.8,
+              1.3
+            ],
+            "cleanse": [
+              0.5,
+              1.3
+            ]
+          },
+          "rangesMlPer10L": {
+            "camg": [
+              8,
+              13
+            ],
+            "cleanse": [
+              5,
+              13
+            ]
+          }
+        },
+        "flower-3": {
+          "ec": 2.5,
+          "pH": "5.8–6.2 (Kokos/Steinwolle), 6.0–6.4 (Torf)",
+          "dosesMlPerL": {
+            "bloom-a": 3.2,
+            "bloom-b": 3.2,
+            "pk": 1.1
+          },
+          "dosesMlPer10L": {
+            "bloom-a": 32,
+            "bloom-b": 32,
+            "pk": 11
+          },
+          "rangesMlPerL": {
+            "camg": [
+              0.8,
+              1.3
+            ],
+            "cleanse": [
+              0.5,
+              1.3
+            ]
+          },
+          "rangesMlPer10L": {
+            "camg": [
+              8,
+              13
+            ],
+            "cleanse": [
+              5,
+              13
+            ]
+          }
+        },
+        "flower-4": {
+          "ec": 2.6,
+          "pH": "5.8–6.2 (Kokos/Steinwolle), 6.0–6.4 (Torf)",
+          "dosesMlPerL": {
+            "bloom-a": 3.2,
+            "bloom-b": 3.2,
+            "pk": 1.6
+          },
+          "dosesMlPer10L": {
+            "bloom-a": 32,
+            "bloom-b": 32,
+            "pk": 16
+          },
+          "rangesMlPerL": {
+            "camg": [
+              0.8,
+              1.3
+            ],
+            "cleanse": [
+              0.5,
+              1.3
+            ]
+          },
+          "rangesMlPer10L": {
+            "camg": [
+              8,
+              13
+            ],
+            "cleanse": [
+              5,
+              13
+            ]
+          }
+        },
+        "flower-5": {
+          "ec": 2.4,
+          "pH": "5.8–6.2 (Kokos/Steinwolle), 6.0–6.4 (Torf)",
+          "dosesMlPerL": {
+            "bloom-a": 2.6,
+            "bloom-b": 2.6,
+            "pk": 2.4
+          },
+          "dosesMlPer10L": {
+            "bloom-a": 26,
+            "bloom-b": 26,
+            "pk": 24
+          },
+          "rangesMlPerL": {
+            "camg": [
+              0.8,
+              1.3
+            ],
+            "cleanse": [
+              0.5,
+              1.3
+            ]
+          },
+          "rangesMlPer10L": {
+            "camg": [
+              8,
+              13
+            ],
+            "cleanse": [
+              5,
+              13
+            ]
+          }
+        },
+        "flower-6": {
+          "ec": 2.3,
+          "pH": "5.8–6.2 (Kokos/Steinwolle), 6.0–6.4 (Torf)",
+          "dosesMlPerL": {
+            "bloom-a": 2.4,
+            "bloom-b": 2.4,
+            "pk": 2.6
+          },
+          "dosesMlPer10L": {
+            "bloom-a": 24,
+            "bloom-b": 24,
+            "pk": 26
+          },
+          "rangesMlPerL": {
+            "camg": [
+              0.8,
+              1.3
+            ],
+            "cleanse": [
+              0.5,
+              1.3
+            ]
+          },
+          "rangesMlPer10L": {
+            "camg": [
+              8,
+              13
+            ],
+            "cleanse": [
+              5,
+              13
+            ]
+          }
+        },
+        "flower-7": {
+          "ec": 1.7,
+          "pH": "5.8–6.2 (Kokos/Steinwolle), 6.0–6.4 (Torf)",
+          "dosesMlPerL": {
+            "bloom-a": 1.3,
+            "bloom-b": 1.3,
+            "pk": 3.2
+          },
+          "dosesMlPer10L": {
+            "bloom-a": 13,
+            "bloom-b": 13,
+            "pk": 32
+          },
+          "rangesMlPerL": {
+            "camg": [
+              0.8,
+              1.3
+            ],
+            "cleanse": [
+              0.5,
+              1.3
+            ]
+          },
+          "rangesMlPer10L": {
+            "camg": [
+              8,
+              13
+            ],
+            "cleanse": [
+              5,
+              13
+            ]
+          }
+        },
+        "flower-8": {
+          "ec": 1.5,
+          "pH": "6.0–6.4 (alle Medien)",
+          "dosesMlPerL": {
+            "bloom-a": 1.1,
+            "bloom-b": 1.1,
+            "pk": 2.6
+          },
+          "dosesMlPer10L": {
+            "bloom-a": 11,
+            "bloom-b": 11,
+            "pk": 26
+          },
+          "rangesMlPerL": {
+            "cleanse": [
+              0.5,
+              1.3
+            ]
+          },
+          "rangesMlPer10L": {
+            "cleanse": [
+              5,
+              13
+            ]
+          }
+        },
+        "flower-9": {
+          "ec": 1.5,
+          "pH": "6.0–6.4 (alle Medien)",
+          "dosesMlPerL": {
+            "bloom-a": 1.1,
+            "bloom-b": 1.1,
+            "pk": 2.6
+          },
+          "dosesMlPer10L": {
+            "bloom-a": 11,
+            "bloom-b": 11,
+            "pk": 26
+          },
+          "rangesMlPerL": {
+            "cleanse": [
+              0.5,
+              1.3
+            ]
+          },
+          "rangesMlPer10L": {
+            "cleanse": [
+              5,
+              13
+            ]
+          }
+        }
+      }
+    }
+  },
+  "currentRunAdvice": {
+    "observed": "Etwa 8–9 Pflanzen in rund 7-Liter-Töpfen (rund und eckig, Erde mit Perlit), Netz eher hoch, viele lange dünne Triebe mit kleinen, lockeren Blütenansätzen, rot/lila Stiele und Blätter plus Vergilbung, auch oben. Reflektierende Zeltwände. Lampe passend zum Zelt.",
+    "legal": "Acht oder neun Pflanzen liegen über der Grenze von drei je erwachsener Person, falls du allein anbaust.",
+    "doNot": "In der Blüte nicht mehr in große Töpfe umsetzen, das stresst zu stark. Lampe nicht auf 100 % drehen, solange die Pflanzen gestresst aussehen.",
+    "fixNow": [
+      "pH und EC vom Gießwasser und vom Ablauf messen. In Erde Ziel-pH etwa 6,2–6,8, in Kokos 5,8–6,2.",
+      "Nachttemperatur im Zelt prüfen, nicht unter 18–20 °C.",
+      "Unter dem Netz ausputzen (Lollipopping) und sehr schwache Ansätze entfernen.",
+      "Wenn der Ablauf-EC klar über dem Zufluss liegt oder der pH daneben ist: mit pH-angepasstem Wasser leicht spülen, dann wieder vorsichtig füttern.",
+      "Rot/lila plus Vergilbung auch oben deutet eher auf pH-Blockade, Phosphor- oder Magnesiummangel oder zu kalte Nächte hin, nicht auf zu wenig Lampenleistung an den Spitzen."
+    ],
+    "cause": "Die kleinen Blüten unten und die dünnen Triebe kommen vor allem von zu vielen Pflanzen in zu kleinen Töpfen, einem zu hohen Netz und ungleicher Höhe. Die Lampe und wahrscheinlich auch die Stecklinge allein erklären das Bild nicht."
+  },
+  "suppliers": [
+    {
+      "id": "anbauvereinigung",
+      "name": "Anbauvereinigungen (legaler Weg)",
+      "legalShip": false,
+      "legalPickup": true,
+      "verdict": "Einziger klar legaler Weg für Stecklinge in Deutschland: persönliche Abholung bei einer zugelassenen Anbauvereinigung, mit Ausweis, höchstens fünf Stück pro Person und Monat. Versand ist verboten. In Hamburg steht eine behördliche Whitelist der erlaubten Vereine. Vorher anrufen, ob sie Stecklinge auch an Nichtmitglieder abgeben – das dürfen sie, müssen sie aber nicht.",
+      "recommendRank": 1
+    },
+    {
+      "id": "lucky-hemp",
+      "name": "Lucky Hemp",
+      "url": "https://luckyhemp.de/collections/stecklinge",
+      "priceEurPerClone": "9,97 € ab 3 Stück (Angebotspreis, Stand der Seite am 25.11.2026)",
+      "shipping": "Bietet Versand an. Nach KCanG § 20 Abs. 5 ist der Versand und die Lieferung von Stecklingen verboten.",
+      "guarantee": "Keine Rückgabe von Stecklingen. Mängel oder Schädlinge innerhalb von 24 Stunden mit Fotos in der Originalverpackung melden. Nach dem Eintopfen übernimmt der Shop laut AGB keine Haftung mehr fürs Anwachsen.",
+      "trustpilot": {
+        "score": 4.4,
+        "count": 758,
+        "url": "https://de.trustpilot.com/review/luckyhemp.de",
+        "asOf": "2026-11-25",
+        "note": "Gesamtnote für den ganzen Shop (auch Blüten, Samen, Öle), nicht nur Stecklinge. Aktuelle Stecklingsbewertungen beklagen sehr kleine, schwache Pflanzen; der Shop schreibt, er versende bewusst kompakt."
+      },
+      "verdict": "Günstig, Versand klappt laut vielen Stimmen, die Stecklingsqualität ist aber gemischt und oft klein. Dein Bauchgefühl dazu ist nachvollziehbar. Für die Probleme auf dem Foto (dünne Triebe, kleinen unteren Buds, Verfärbung) ist trotzdem vor allem das Setup verantwortlich. Zum Nachbestellen per Versand kann ich Lucky Hemp nicht empfehlen, weil der Versand von Stecklingen gesetzlich verboten ist."
+    },
+    {
+      "id": "sensi-seeds",
+      "name": "Sensi Seeds",
+      "url": "https://sensiseeds.com/de/cannabispflanzen/stecklinge",
+      "priceEurPerClone": "16,50–25,00 € je nach Sorte (Stand der Seite am 25.11.2026)",
+      "shipping": "Bietet Versand nur innerhalb Deutschlands an, laut Shop montags bis mittwochs, mit EU-Pflanzenpass und Angabe, Mutterpflanzen seien auf Viren und Viroide getestet. Auch hier gilt: Stecklingsversand ist gesetzlich verboten.",
+      "guarantee": "Shop nennt gesetzliche Gewährleistung; Details stehen in den AGB.",
+      "trustpilot": {
+        "score": 1.7,
+        "count": 1647,
+        "url": "https://de.trustpilot.com/review/sensiseeds.de",
+        "asOf": "2026-11-25",
+        "note": "Punktzahl und Anzahl stammen aus öffentlichen Trustpilot-Suchtreffern. Die Live-Seite selbst war beim direkten Abruf nicht zuverlässig erreichbar (Fehler 500 / 403), deshalb diese Zahl mit Vorsicht."
+      },
+      "verdict": "Teurer, mit Pflanzenpass und Test-Anspruch, aber einer sehr schlechten Trustpilot-Gesamtnote. Ebenfalls kein legaler Versandweg."
+    },
+    {
+      "id": "grow-am-rhein",
+      "name": "Grow am Rhein",
+      "url": "https://www.growamrhein.de/",
+      "priceEurPerClone": null,
+      "shipping": "Kölner Growshop für Equipment und Dünger, kein typischer Stecklingszüchter.",
+      "guarantee": null,
+      "trustpilot": {
+        "score": null,
+        "count": null,
+        "note": "Keine belastbare, selbst geprüfte Trustpilot-Gesamtnote gefunden (eine Spiegel-Seite nannte 3,7 aus einer einzelnen Bewertung). Keine Note erfinden."
+      },
+      "verdict": "Kein empfohlener Stecklingsanbieter. Eine frühere Bestellung dort kann Equipment gewesen sein."
+    }
+  ],
+  "shoppingList": [
+    {
+      "item": "Stofftöpfe 25 oder 30 L plus Untersetzer",
+      "amount": "3"
+    },
+    {
+      "item": "CANNA Coco Professional Plus oder Plagron Cocos Premium, 50 L",
+      "amount": "2–3 Säcke"
+    },
+    {
+      "item": "Athena Grow A und Grow B",
+      "amount": "je 1 Flasche"
+    },
+    {
+      "item": "Athena Bloom A und Bloom B",
+      "amount": "je 1 Flasche"
+    },
+    {
+      "item": "Athena PK",
+      "amount": "1 Flasche"
+    },
+    {
+      "item": "Athena CaMg",
+      "amount": "1 Flasche"
+    },
+    {
+      "item": "Athena Cleanse",
+      "amount": "1 Flasche"
+    },
+    {
+      "item": "Athena Balance (pH-Plus)",
+      "amount": "1 Flasche"
+    },
+    {
+      "item": "pH-Minus (Phosphorsäure)",
+      "amount": "1 Flasche"
+    },
+    {
+      "item": "Digitales pH-Messgerät und EC-Messgerät mit Kalibrierlösungen",
+      "amount": "1 Set"
+    },
+    {
+      "item": "Thermo-/Hygrometer",
+      "amount": "2 (oben und unten)"
+    }
+  ],
+  "sources": [
+    {
+      "title": "KCanG § 9 Privater Eigenanbau",
+      "href": "https://www.gesetze-im-internet.de/kcang/__9.html",
+      "site": "gesetze-im-internet.de"
+    },
+    {
+      "title": "KCanG § 20 Vermehrungsmaterial, Versandverbot",
+      "href": "https://www.gesetze-im-internet.de/kcang/__20.html",
+      "site": "gesetze-im-internet.de"
+    },
+    {
+      "title": "Athena Blended Line Feed Schedules",
+      "href": "https://support.athenaag.com/hc/en-us/articles/17189523484443-Blended-Line-Feed-Schedules",
+      "site": "support.athenaag.com"
+    },
+    {
+      "title": "Athena Blended Feed Schedule Metric PDF (A01.004)",
+      "href": "https://support.athenaag.com/hc/en-us/article_attachments/17189433276699",
+      "site": "support.athenaag.com"
+    },
+    {
+      "title": "CANNA Coco Professional Plus",
+      "href": "https://www.canna-de.com/canna-coco-professional-plus",
+      "site": "canna-de.com"
+    },
+    {
+      "title": "Plagron Cocos Premium",
+      "href": "https://plagron.com/de/hobby/produkte/cocos-premium",
+      "site": "plagron.com"
+    },
+    {
+      "title": "Omega Infinity Pro 3.0 600W (GroWell)",
+      "href": "https://www.growell.co.uk/products/omega-3-0-infinity-pro-led-grow-light-600-watt",
+      "site": "growell.co.uk"
+    },
+    {
+      "title": "VG Köln, Handel mit Cannabisjungpflanzen, 18.11.2025",
+      "href": "https://www.vg-koeln.nrw.de/behoerde/presse/Pressemitteilungen/Archiv/2025/21_18112025/index.php",
+      "site": "vg-koeln.nrw.de"
+    },
+    {
+      "title": "Anbauvereinigungen in Hamburg",
+      "href": "https://www.hamburg.de/politik-und-verwaltung/behoerden/bjv/themen/verbraucherschutz/lebensmittel/anbauvereinigungen",
+      "site": "hamburg.de"
+    },
+    {
+      "title": "Lucky Hemp Stecklinge",
+      "href": "https://luckyhemp.de/collections/stecklinge",
+      "site": "luckyhemp.de"
+    },
+    {
+      "title": "Lucky Hemp Trustpilot",
+      "href": "https://de.trustpilot.com/review/luckyhemp.de",
+      "site": "trustpilot.com"
+    },
+    {
+      "title": "Sensi Seeds Stecklinge",
+      "href": "https://sensiseeds.com/de/cannabispflanzen/stecklinge",
+      "site": "sensiseeds.com"
+    },
+    {
+      "title": "Berlin FAQ privater Eigenanbau",
+      "href": "https://www.berlin.de/lb/drogen-sucht/gesetze/konsumcannabis-gesetz/konsumcannabisgesetz-faq-privater-eigenanbau-1483258.php",
+      "site": "berlin.de"
+    }
+  ]
+}
